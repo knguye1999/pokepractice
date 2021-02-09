@@ -3,9 +3,8 @@
 }
 .App {
   text-align: center;
-  background: #67B26F;  /* fallback for old browsers */
-  background: -webkit-linear-gradient(to right, #4ca2cd, #67B26F);  /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #4ca2cd, #67B26F); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: rgb(34,193,195);
+  background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
   width: 100vw;
   height: 100vh;
   display: flex;
@@ -37,23 +36,30 @@
 
 .messages{
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   flex: 1;
-  justify-content: flex-end;
-  text-align: left;
   overflow: auto;
 }
 .message-row{
   width:100%;
+  display: flex;
 }
-
 .message{
-  background:black;
-  color:white;
+  background: white;
+  color: black;
   border-radius:10px;
-  margin:10px;
+  margin:7px;
   display: inline-block;
   padding: 4px 12px;
+  position: relative;
+}
+.message-name{
+  position: absolute;
+  top: -15px;
+  left: 7px;
+  font-size: 0.75rem;
+  color:black;
+  font-weight: bold;
 }
 
 .text-input{
@@ -68,7 +74,7 @@
 
 .send-button{
   position:absolute;
-  right:0.6rem;
+  right:0.65rem;
   top:0.5rem;
   border-radius:100%;
   border:1px solid white;
@@ -78,13 +84,23 @@
   outline:none;
   height:1.4rem;
   width:1.4rem;
-  justify-content: center;
   display: flex;
   align-items: center;
+  justify-content: center;
+}
+.send-button[disabled]{
+  background:grey;
+  cursor: default;
+}
+.send-button > svg {
+  color: black;
+}
+.send-button[disabled] > svg {
+  color: white;
 }
 
 .input{
-  height:1.6rem; 
+  height:1.65rem;
   width: calc(100% - 1rem);
   background:rgba(0, 0, 0, 0.5);
   border-radius: 0.8rem;
@@ -92,8 +108,25 @@
   border:1px solid white;
   color:white;
   padding-left:10px;
-  font-weight: bold;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .inputx{
   border:1px solid white;
@@ -105,7 +138,6 @@
   padding:0 10px;
   outline:none;
 }
-
 .send-buttonx{
   position:absolute;
   right:12px;
@@ -123,14 +155,15 @@
   font-weight: bold;
   outline:none;
 }
-
 .send-buttonx[disabled]{
   cursor: default;
   background:grey;
 }
-.send-button > svg {
-  color: black;
+
+.name-picker{
+  display:flex;
+  margin:0 12px;
 }
-.send-button[disabled] > svg {
-  color: white;
+.name-picker input {
+  max-width:100px;
 }
